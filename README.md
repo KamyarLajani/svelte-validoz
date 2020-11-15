@@ -99,6 +99,7 @@ let formSubmit = () =>{
 ### Examples
  - [Example1](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/Example1.svelte)
  - [Example2](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/Example2.svelte)
+ - [Integerating with Svelte Material UI (SMUI)](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/ExampleSMUI.svelte)
 
 ### See [validoz](https://www.npmjs.com/package/validoz) for more information about types and field properties
 
