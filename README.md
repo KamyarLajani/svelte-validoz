@@ -9,7 +9,7 @@ $ npm install svelte-validoz
 ```
 ### Sample code
 
-```sh
+```html
 <script>
 import {validoz, isValid, Message} from 'svelte-validoz';
 import {fields} from './form.js';
@@ -38,7 +38,7 @@ let formSubmit = () =>{
 </form>
 
 ```
-```sh
+```js
 // form.js file
 export let fields = [
     {
@@ -56,7 +56,7 @@ export let fields = [
 ```
 Remove those lines if you only want to validate after submits.
 
-```sh
+```js
 let submited = false;
 $: if(submited){
     result = validoz(fields);
@@ -64,7 +64,7 @@ $: if(submited){
 ```
 #### All messages in one place
 Example below to put all messages in one place by `AllMessages` component
-```sh
+```html
 <script>
 import {validoz, isValid, AllMessages} from 'svelte-validoz';
 import {fields} from './form.js';
