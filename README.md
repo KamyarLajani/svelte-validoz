@@ -1,6 +1,6 @@
 # svelte-validoz
 
-svelte-validoz is [Validoz](https://www.npmjs.com/package/validoz) for Svelte component library.
+svelte-validoz is [Validoz](https://www.npmjs.com/package/validoz) for Svelte component library for form validation.
 
 ### Installation
 
