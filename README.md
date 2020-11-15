@@ -1,12 +1,15 @@
 # svelte-validoz
 
-svelte-validoz is [Validoz](https://www.npmjs.com/package/validoz) for svelte component library.
+svelte-validoz is [Validoz](https://www.npmjs.com/package/validoz) for Svelte component library.
 
 ### Installation
 
 ```sh
 $ npm install svelte-validoz
 ```
+
+![GIF demo](https://raw.githubusercontent.com/KamyarLajani/svelte-validoz/main/demo1.gif)
+
 ### Sample code
 
 ```html
