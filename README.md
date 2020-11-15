@@ -10,6 +10,7 @@ $ npm install svelte-validoz
 
 ![GIF demo](https://raw.githubusercontent.com/KamyarLajani/svelte-validoz/main/demo1.gif)
 
+
 ### Sample code
 
 ```html
@@ -89,7 +90,6 @@ let formSubmit = () =>{
 <form on:submit|preventDefault="{formSubmit}">
     <h4>Form</h4>
     <input type="text" placeholder="Enter email" bind:value="{fields[0].value}"><br>
-    <Message result={result} name="Email address"/>
     <input type="number" placeholder="Age" bind:value="{fields[1].value}"><br>
     <AllMessages result={result}/> // add it once
     <button type="submit">Submit</button>
