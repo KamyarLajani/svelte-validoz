@@ -7,19 +7,19 @@ export let name;
     {#each result as item}
         {#if item.field == name}
             {#if item.message === ''}
-                <small class="valid"></small>
+                <p class="valid"></p>
             {:else}
-                <small class="invalid">{item.message}</small>
+                <p class="invalid">{item.message}</p>
             {/if}
         {/if}
     {/each}
 {/if} 
 
 <style>
-small.valid {
+p.valid {
     display: none;
 }
-small.invalid {
+p.invalid {
     color: red;
 }
 </style>
