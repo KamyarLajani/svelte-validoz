@@ -147,7 +147,74 @@ isValidByName(result, 'Date'); // true
 | `notEqual` | A field value and equal value not to be equal. |
 
 
-### Examples
+### Other example
+
+```js
+let {validoz, isValid, isValidByName} = require('validoz');
+
+let {field} = require('./form.js');
+let result = validoz(field);
+console.log(result); 
+/*
+Returns: 
+[
+  { field: 'Full name', message: '' },
+  { field: 'Email address', message: 'Email address is invalid' },
+  { field: 'Age', message: 'Age must be between 18 and 60' },
+  { field: 'Best friend', message: 'Best friend value is wrong' },
+  {
+    field: 'Password',
+    message: 'Password must contain at least one numberic, one upper case, one lower case characters and the length at least 6 characters'
+  }
+]
+*/
+isValid(result); // false
+isValid(result); // false
+isValid(result[0]); // "Full name", true
+isValidByName(result, 'Full name'); // true
+isValidByName(result, 'Email address'); // false
+isValidByName(result, 'Password'); // false
+```
+
+
+```js
+// form.js file
+export let field = [
+    {
+        name: "Full name",
+        type: "text",
+        value: 'Hello world',
+        minLength: 6
+    },
+    {
+        name: "Email address",
+        type: "email",
+        value: 'example@.com'
+    },
+    {
+        name: "Age",
+        type: "number",
+        value: 12,
+        min: 18,
+        max: 60,
+    },
+    {
+        name: "Best friend",
+        type: "text",
+        value: 'Doe',
+        equal: 'John' // value must be John
+    },
+    {
+        name: "Password",
+        type: "password", // you can also pass text if you don't want regex pattern to be conditioned
+        value: '123456',
+        minLength: 6,
+        maxLength: 30,
+    }
+];
+```
+
+### Other Examples with source code
  - [Example1](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/Example1.svelte)
  - [Example2](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/Example2.svelte)
  - [Integerating with Svelte Material UI (SMUI)](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/ExampleSMUI.svelte)
