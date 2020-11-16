@@ -1,13 +1,11 @@
 <script>
-import {validoz, isValid} from 'svelte-validoz';
-import AllMessages from './AllMessages.svelte'
+import {validoz, isValid, AllMessages} from 'svelte-validoz';
 let submited = false;
 import {fields} from './form.js';
 let result;
 $: if(submited){
     result = validoz(fields);
 }
-
 let formSubmit = () =>{
     submited = true;
     result = validoz(fields);

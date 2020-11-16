@@ -31,7 +31,8 @@ let formSubmit = () =>{
     }
 }
 </script>
-
+```
+```html
 <form on:submit|preventDefault="{formSubmit}">
     <h4>Form</h4>
     <input type="text" placeholder="Enter email" bind:value="{fields[0].value}"><br>
@@ -40,7 +41,6 @@ let formSubmit = () =>{
     <Message result={result} name="Age"/>
     <button type="submit">Submit</button>
 </form>
-
 ```
 ```js
 // form.js file
@@ -48,7 +48,8 @@ export let fields = [
     {
         name: "Email address",
         type: "email",
-        value: ''
+        value: '',
+        // you can pass your custom properties
     },
     {
         name: "Age",
@@ -58,7 +59,7 @@ export let fields = [
     },
 ];
 ```
-Remove those lines if you only want to validate after submits.
+Remove those lines below if you want to revalidate only after submits.
 
 ```js
 let submited = false;
@@ -86,7 +87,8 @@ let formSubmit = () =>{
     }
 }
 </script>
-
+```
+```html
 <form on:submit|preventDefault="{formSubmit}">
     <h4>Form</h4>
     <input type="text" placeholder="Enter email" bind:value="{fields[0].value}"><br>
@@ -94,15 +96,61 @@ let formSubmit = () =>{
     <AllMessages result={result}/> // add it once
     <button type="submit">Submit</button>
 </form>
-
 ```
+
+### Date example
+```js
+import {validoz, isValid, isValidByName} from 'validoz';
+let field = [
+{
+    name: "Date",
+    type: "date",
+    value: '24/05/2020',
+    dateFormat: 'dd/mm/yyyy',
+    startDate: '08/02/2020',
+    endDate: '24/05/2020',
+}
+];
+
+let result = validoz(field);
+console.log(result); // { field: 'Date', message: '' }
+isValid(result); // true
+isValidByName(result, 'Date'); // true
+```
+
+### Types
+
+| name | Description |
+| ------ | ------ |
+| `text` | Any characters |
+| `password` | String must contain at least one numberic, one upper case, one lower case characters and the length at least 6 characters |
+| `fullname` | String should contain at least 2 words with 3 characters for each of the words and separated by space. It can contain more than one word.|
+| `username` | Like Instagram username. |
+| `word` | Alphabet characters. |
+| `number` | An integer number |
+| `date` | Example `21/03/2020` string. |
+| `time` | Example `05:12` string. |
+
+### Field properties
+
+| name | Description |
+| ------------- | ------ |
+| `name` | Field name |
+| `value` | Field value |
+| `type` | Field type |
+| `required` | `Boolean`. default: `true` |
+| `min` and `max` | Minumum and Maximum of type number. Each of them can be passed alone. |
+| `minDigits` and `maxDigits` | Minumum and Maximum digits of type number. Each of them can be passed alone. |
+| `minLength` and `maxLength` | Minimum and Maximum length of the string types. |
+| `dateFormat` | String values of `mm/dd/yyyy`, `mm-dd-yyyy`, `dd/mm/yyyy`, `dd-mm-yyyy`, `yyyy/mm/dd` and `yyyy-mm-dd` |
+| `equal` | A field value and equal value to be equal. |
+| `notEqual` | A field value and equal value not to be equal. |
+
+
 ### Examples
  - [Example1](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/Example1.svelte)
  - [Example2](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/Example2.svelte)
  - [Integerating with Svelte Material UI (SMUI)](https://github.com/KamyarLajani/svelte-validoz/blob/main/src/ExampleSMUI.svelte)
-
-### See [validoz](https://www.npmjs.com/package/validoz) for more information about types and field properties
-
 
 ### Author
 Kamyar Lajani
