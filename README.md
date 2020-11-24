@@ -2,6 +2,8 @@
 
 svelte-validoz is [Validoz](https://www.npmjs.com/package/validoz) for Svelte for `form validation`.
 
+See [svelte-yup](https://github.com/KamyarLajani/svelte-yup) better library for data validation
+
 ### Installation
 
 ```sh
